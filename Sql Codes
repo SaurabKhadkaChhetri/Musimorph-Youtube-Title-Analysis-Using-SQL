@@ -1,0 +1,112 @@
+SELECT * FROM musimorph_youtube.musimorph;
+Use musimorph_youtube;
+
+-- Views on the basis of length of title
+SELECT 
+    title, LENGTH(title) AS number_of_letters, views
+FROM
+    musimorph
+ORDER BY number_of_letters;
+    
+    
+-- Maximum, Minimum and Average Length of title    
+SELECT 
+    MAX(LENGTH(title)) AS max_length,
+    MIN(LENGTH(title)) AS min_length, 
+    AVG(LENGTH(title)) AS avg_length
+FROM
+    musimorph;
+    
+    -- Max length and min length title views
+   SELECT 
+    title, LENGTH(title) AS length_title, views
+FROM
+    musimorph
+WHERE
+    LENGTH(title) = 68 OR LENGTH(title) = 15;
+    
+    
+  -- Range of letters and views  
+SELECT 
+    CONCAT(LENGTH(title),
+            '-',
+            (LENGTH(title)) + 9) AS title_length_range,
+    COUNT(*) AS num_titles,
+    SUM(views) AS total_views
+FROM
+    musimorph
+GROUP BY title_length_range
+ORDER BY total_views DESC;
+
+-- Common word Views
+-- Sound Pyramid
+SELECT Title, Views
+FROM musimorph
+WHERE Title LIKE '%sound pyramid%';
+
+SELECT 
+    COUNT(*) AS NumberOfTitles,
+    SUM(Views) AS TotalViews
+FROM 
+    musimorph
+WHERE 
+    Title LIKE '%sound pyramid%';
+    
+-- 3D Speaker Array
+SELECT Title, Views
+FROM musimorph
+WHERE Title LIKE '%3D Speaker Array%';
+
+SELECT 
+    COUNT(*) AS NumberOfTitles,
+    SUM(Views) AS TotalViews
+FROM 
+    musimorph
+WHERE 
+    Title LIKE '%3D Speaker Array%';
+    
+-- Sound Sphere
+SELECT Title, Views
+FROM musimorph
+WHERE Title LIKE '%Sound Sphere%';
+
+SELECT 
+    COUNT(*) AS NumberOfTitles,
+    SUM(Views) AS TotalViews
+FROM 
+    musimorph
+WHERE 
+    Title LIKE '%Sound Sphere%';
+    
+-- Sound Cube
+SELECT Title, Views
+FROM musimorph
+WHERE Title LIKE '%Sound Cube%';
+
+SELECT 
+    COUNT(*) AS NumberOfTitles,
+    SUM(Views) AS TotalViews
+FROM 
+    musimorph
+WHERE 
+    Title LIKE '%Sound Cube%';
+
+-- Sound Cylinder
+SELECT Title, Views
+FROM musimorph
+WHERE Title LIKE '%Sound Cylinder%';
+
+SELECT 
+    COUNT(*) AS NumberOfTitles,
+    SUM(Views) AS TotalViews
+FROM 
+    musimorph
+WHERE 
+    Title LIKE '%Sound cylinder%';
+
+
+
+
+
+
+
